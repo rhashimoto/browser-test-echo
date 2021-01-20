@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Sample Jasmine Standalone Test</title>
+
+<link rel="shortcut icon" type="image/png" href="/jasmine-standalone/lib/jasmine-3.6.0/jasmine_favicon.png">
+<link rel="stylesheet" href="/jasmine-standalone/lib/jasmine-3.6.0/jasmine.css">
+
+<script src="/jasmine-standalone/lib/jasmine-3.6.0/jasmine.js"></script>
+<script src="/jasmine-standalone/lib/jasmine-3.6.0/jasmine-html.js"></script>
+<script src="/jasmine-standalone/lib/jasmine-3.6.0/boot.js"></script>
+
+<!-- Add custom reporter to marshal results for Jest. -->
+<script type="module">
+  import 'browser-test-echo';
+</script>
+
+<script type="module">
+  // Bare module imports work when served via Web Dev Server.
+  import sinon from 'sinon';
+  
+  describe('sample test suite', () => {
+    it('should work', () => {
+      expect(true).toBeTruthy();
+    });
+
+    describe('nested test suite', () => {
+      it('should also work', () => {
+        expect(false).toBeFalsy();
+      });
+
+      it('should show failed tests (like this one)', () => {
+        expect(true).toBeFalsy();
+      });
+    });
+  });
+</script>
