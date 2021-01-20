@@ -6,6 +6,9 @@
     "node": "./src/BrowserTestRunner.js",
     "default": "./src/BrowserTestReporter.js"
   },
+  "scripts": {
+    "test": "yarn jest"
+  },
   "devDependencies": {
     "@web/dev-server": "^0.1.5",
     "jest": "^26.6.3",
