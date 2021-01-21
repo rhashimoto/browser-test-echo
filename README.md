@@ -71,7 +71,7 @@ Ran all test suites.
 ## Usage
 How to run browser tests from Jest in your project:
 
-* Install this package as a dev dependency, plus:
+* Install this package as a dev dependency (`yarn add -D browser-test-echo@rhashimoto/browser-test-echo`), plus:
    * jest
    * jest-environment-node
    * puppeteer
