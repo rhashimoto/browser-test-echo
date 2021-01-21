@@ -23,8 +23,66 @@ It should be adaptable to most node test runners that support ES6 modules,
 [Puppeteer](https://developers.google.com/web/tools/puppeteer),
 and Jasmine (or Jasmine-like) test specs.
 
+## Quick Start
+* Use a recent version of nodejs (successfully tried v14.15.4).
+* Clone the project and `yarn install`.
+* Follow the
+[instructions for enabling ES6 modules in Jest](https://jestjs.io/docs/en/ecmascript-modules)
+which may involve setting NODE_OPTIONS in your environment.
+* `yarn test`
+
+The sample test should show two passing tests and one intentional
+failing test. On a dumb terminal the results should look like this:
+```
+Web Dev Server started...
+
+  Root dir: /home/dev/browser-test-echo
+  Local:    http://localhost:8001/
+  Network:  http://172.17.0.2:8001/
+
+FAIL test/sample.test.js
+  sample test suite
+    ✓ should work (1 ms)
+    nested test suite
+      ✓ should also work (5 ms)
+      ✕ should show failed tests (like this one) (8 ms)
+
+  ● sample test suite › nested test suite › should show failed tests (like this one)
+
+    expect(received).toBeFalsy()
+
+    Received: "Error: Expected true to be falsy.
+        at <Jasmine>
+
+      at UserContext.<anonymous> (http:/localhost:8001/test/sample.test.html:31:22)
+          at <Jasmine>"
+      at forEach (src/BrowserTestRunner.js:117:38)
+          at Array.forEach (<anonymous>)
+      at Object.<anonymous> (src/BrowserTestRunner.js:115:45)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.526 s, estimated 3 s
+Ran all test suites.
+```
+
 ## Usage
-TBD
+How to run browser tests from Jest in your project:
+
+* Install this package as a dependency.
+
+* Copy the test scripts - 
+jest-setup.cjs, jest-teardown.cjs, and jest-environment.cjs -
+into your own project and reference them in your jest.config.js.
+
+* Use the sample files as models to create your own test.
+   * [sample.test.js](https://github.com/rhashimoto/browser-test-echo/blob/master/test/sample.test.js) - Jest test that passes the Puppeteer browser and Jasmine Standalone test URL to this package.
+   * [sample.test.html](https://github.com/rhashimoto/browser-test-echo/blob/master/test/sample.test.html) - Standalone browser test. You will need to alter the Jasmine Standalone script paths appropriately for your project.
+
+## Caveats
+ES6 module support is not complete or stable in Jest and Nodejs,
+though steadily improving.
 
 ## Alternatives
 Web Dev Server does have a companion
