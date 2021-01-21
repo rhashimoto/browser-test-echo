@@ -42,19 +42,19 @@ Web Dev Server started...
 
 FAIL test/sample.test.js
   sample test suite
-    ✓ should work (1 ms)
+    ✓ should work
     nested test suite
-      ✓ should also work (5 ms)
-      ✕ should show failed tests (like this one) (8 ms)
+      ✕ should show failed tests (like this one) (13 ms)
+      ✓ should also work
 
   ● sample test suite › nested test suite › should show failed tests (like this one)
 
     expect(received).toBeFalsy()
 
-    Received: "Error: Expected true to be falsy.
+    Received: "Error: Expected [ 1, 2, 3 ] to be 'a unicorn'.
         at <Jasmine>
 
-      at UserContext.<anonymous> (http:/localhost:8001/test/sample.test.html:31:22)
+      at UserContext.<anonymous> (http:/localhost:8001/test/sample.test.html:34:27)
           at <Jasmine>"
       at forEach (src/BrowserTestRunner.js:117:38)
           at Array.forEach (<anonymous>)
@@ -63,7 +63,7 @@ FAIL test/sample.test.js
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 2 passed, 3 total
 Snapshots:   0 total
-Time:        2.526 s, estimated 3 s
+Time:        2.664 s, estimated 5 s
 Ran all test suites.
 ```
 

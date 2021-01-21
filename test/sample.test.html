@@ -9,11 +9,14 @@
 <script src="/jasmine-standalone/lib/jasmine-3.6.0/jasmine-html.js"></script>
 <script src="/jasmine-standalone/lib/jasmine-3.6.0/boot.js"></script>
 
-<!-- Add custom reporter to marshal results for Jest. -->
+<!-- Custom reporter to marshal results for Jest. -->
 <script type="module">
   import 'browser-test-echo';
 </script>
 
+<!-- Add any web content needed for the test. -->
+
+<!-- Add Jasmine test specs inline or by reference -->
 <script type="module">
   // Bare module imports work when served via Web Dev Server.
   import sinon from 'sinon';
@@ -29,7 +32,7 @@
       });
 
       it('should show failed tests (like this one)', () => {
-        expect(true).toBeFalsy();
+        expect([1, 2, 3]).toBe('a unicorn');
       });
     });
   });
