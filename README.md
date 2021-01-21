@@ -88,7 +88,8 @@ into your own project and reference them in your jest.config.js.
 If you want to debug a browser test interactively in a browser, note that
 you can simply bypass Jest and load the HTML file directly. Use
 `yarn web-dev-server --node-resolve --preserve-symlinks`
-to launch the server manually.
+to launch the server manually (add `--watch` to trigger a browser
+reload when dependent files change).
 
 ## Caveats
 ES6 module support is not complete or stable in Jest and Nodejs,
