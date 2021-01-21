@@ -25,13 +25,14 @@ and Jasmine (or Jasmine-like) test specs.
 
 ## Quick Start
 * Use a recent version of nodejs (successfully tried v14.15.4).
-* Clone the project and `yarn install`.
+* Clone the project and `yarn install` (npm may also work but this project
+was developed with yarn).
 * Follow the
 [instructions for enabling ES6 modules in Jest](https://jestjs.io/docs/en/ecmascript-modules)
-which may involve setting NODE_OPTIONS in your environment.
+which may involve setting NODE_OPTIONS in your environment or command line.
 * `yarn test`
 
-The sample test should show two passing tests and one intentional
+The sample test should show two passing tests and one intentionally
 failing test. On a dumb terminal the results should look like this:
 ```
 Web Dev Server started...
@@ -70,7 +71,11 @@ Ran all test suites.
 ## Usage
 How to run browser tests from Jest in your project:
 
-* Install this package as a dependency.
+* Install this package as a dev dependency, plus:
+   * jest
+   * jest-environment-node
+   * puppeteer
+   * @web/dev-server
 
 * Copy the test scripts - 
 jest-setup.cjs, jest-teardown.cjs, and jest-environment.cjs -
@@ -79,6 +84,11 @@ into your own project and reference them in your jest.config.js.
 * Use the sample files as models to create your own test.
    * [sample.test.js](https://github.com/rhashimoto/browser-test-echo/blob/master/test/sample.test.js) - Jest test that passes the Puppeteer browser and Jasmine Standalone test URL to this package.
    * [sample.test.html](https://github.com/rhashimoto/browser-test-echo/blob/master/test/sample.test.html) - Standalone browser test. You will need to alter the Jasmine Standalone script paths appropriately for your project.
+
+If you want to debug a browser test interactively in a browser, note that
+you can simply bypass Jest and load the HTML file directly. Use
+`yarn web-dev-server --node-resolve --preserve-symlinks`
+to launch the server manually.
 
 ## Caveats
 ES6 module support is not complete or stable in Jest and Nodejs,
